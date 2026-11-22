@@ -82,30 +82,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   }
 
   FutureOr<NavigationDecision> _onNavigationRequest(NavigationRequest req) {
-    if (!req.isMainFrame) return NavigationDecision.navigate;
-
-    switch (_service.classify(req.url)) {
-      case NavigationAction.allowInApp:
-        return NavigationDecision.navigate;
-      case NavigationAction.upgradeToHttps:
-        final Uri secure = Uri.parse(req.url).replace(scheme: 'https');
-        _controller.loadRequest(secure);
-        return NavigationDecision.prevent;
-      case NavigationAction.openExternally:
-        _openExternal(req.url);
-        return NavigationDecision.prevent;
-      case NavigationAction.block:
-        return NavigationDecision.prevent;
-    }
-  }
-
-  Future<void> _openExternal(String url) async {
-    final bool opened = await _service.openExternally(url);
-    if (!opened && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('No app found to open this link.')),
-      );
-    }
+    return NavigationDecision.navigate;
   }
 
   void _onPageStarted(String url) {

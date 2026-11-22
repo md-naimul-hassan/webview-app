@@ -13,7 +13,7 @@ class LoadingWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              'Hostinger Panel',
+              'WebView App',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: const Color(0xFF1D1E20),

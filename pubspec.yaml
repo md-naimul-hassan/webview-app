@@ -1,5 +1,5 @@
 name: webview
-description: "Hostinger Panel - a lightweight Android WebView client for hPanel."
+description: " Panel - a lightweight Android WebView client for hPanel."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -13,7 +13,6 @@ dependencies:
 
   webview_flutter: ^4.14.1
   webview_flutter_android: ^4.14.1
-  url_launcher: ^6.3.3
 
 dev_dependencies:
   flutter_test:

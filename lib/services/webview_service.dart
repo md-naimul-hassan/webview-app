@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 enum NavigationAction { allowInApp, upgradeToHttps, openExternally, block }
 
 class WebViewService {
   const WebViewService();
 
-  static final Uri homeUrl = Uri.parse('https://hpanel.hostinger.com/');
+  static final Uri homeUrl = Uri.parse('https://clients.unitedwebhost.com');
 
   static const List<String> trustedDomains = <String>['hostinger.com'];
 
@@ -53,16 +52,6 @@ class WebViewService {
     }
   }
 
-  Future<bool> openExternally(String url) async {
-    final Uri? uri = Uri.tryParse(url);
-    if (uri == null) return false;
-    try {
-      return await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } on PlatformException catch (e) {
-      debugPrint('Could not launch $url: ${e.message}');
-      return false;
-    }
-  }
 
   Future<List<String>> pickFiles({
     required List<String> acceptTypes,
